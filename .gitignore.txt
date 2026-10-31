@@ -1,0 +1,6 @@
+*.mdf
+*.ldf
+*.bak
+.env
+appsettings.Development.json
+.vs/
