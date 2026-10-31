@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\varad\\OneDrive\\Desktop\\DomrachevaDB\\PracticeBD_Dom\\CodForBD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18F3D6FB-E0CB-4969-9A02-5062D31B3D70}|CodForBD\\CodForBD.csproj|c:\\users\\varad\\onedrive\\desktop\\domrachevadb\\practicebd_dom\\codforbd\\codforbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18F3D6FB-E0CB-4969-9A02-5062D31B3D70}|CodForBD\\CodForBD.csproj|solutionrelative:codforbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28C4A035-0EAA-AB67-2B42-0468FFAF7EBE}|CodForBD\\CodForBD.csproj|c:\\users\\varad\\onedrive\\desktop\\domrachevadb\\practicebd_dom\\codforbd\\codforbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28C4A035-0EAA-AB67-2B42-0468FFAF7EBE}|CodForBD\\CodForBD.csproj|solutionrelative:codforbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18F3D6FB-E0CB-4969-9A02-5062D31B3D70}|CodForBD\\CodForBD.csproj|c:\\users\\varad\\onedrive\\desktop\\domrachevadb\\practicebd_dom\\codforbd\\codforbd\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{18F3D6FB-E0CB-4969-9A02-5062D31B3D70}|CodForBD\\CodForBD.csproj|solutionrelative:codforbd\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{28C4A035-0EAA-AB67-2B42-0468FFAF7EBE}|CodForBD\\CodForBD.csproj|c:\\users\\varad\\onedrive\\desktop\\domrachevadb\\practicebd_dom\\codforbd\\codforbd\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{28C4A035-0EAA-AB67-2B42-0468FFAF7EBE}|CodForBD\\CodForBD.csproj|solutionrelative:codforbd\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +34,7 @@
               "RelativeToolTip": "CodForBD\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-10-31T17:58:18.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T17:58:18.947Z"
             },
             {
               "$type": "Document",
@@ -45,7 +44,7 @@
               "RelativeDocumentMoniker": "CodForBD\\Program.cs",
               "ToolTip": "C:\\Users\\varad\\OneDrive\\Desktop\\DomrachevaDB\\PracticeBD_Dom\\CodForBD\\CodForBD\\Program.cs",
               "RelativeToolTip": "CodForBD\\Program.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAgwEIAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-31T17:53:17.796Z",
               "EditorCaption": ""

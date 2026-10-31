@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CodForBD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc774cd4fd2220a9939f191186379335be36f87e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea31d5e4115888f854d97860f23329a620eefb25")]
 [assembly: System.Reflection.AssemblyProductAttribute("CodForBD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CodForBD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

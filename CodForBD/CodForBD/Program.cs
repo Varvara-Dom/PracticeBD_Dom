@@ -1,131 +1,84 @@
 ﻿using System;
-
 using System.Threading.Tasks;
-
 using Microsoft.Data.SqlClient;
 
 namespace CodForBD
-
 {
-
     internal class Program
-
     {
-
         static async Task Main(string[] args)
-
         {
-
             string connectionString = Environment.GetEnvironmentVariable("PRACTICE_DB_CONNECTION");
 
             if (string.IsNullOrEmpty(connectionString))
-
             {
-
                 Console.WriteLine("Ошибка: Переменная PRACTICE_DB_CONNECTION не найдена.");
-
                 return;
-
             }
 
-            Console.WriteLine("--- Тест на добавление сотрудника ---");
+            Console.WriteLine("-- Отчёт по отделам. --");
+            await GenerateDepartmentReport(connectionString);
 
-
-
-            await AddEmployee(connectionString, "Домрачева Варвара", 35000, 2);
-
-            Console.WriteLine("\n--- Тестирование на список всех сотрудников ---");
-
-
-
-            await PrintAllEmployees(connectionString);
-
+            Console.WriteLine("\nНажмите любую клавишу для выхода...");
+            Console.ReadLine();
         }
 
-        static async Task AddEmployee(string connectionString, string name, decimal salary, int deptId)
-
+        static async Task GenerateDepartmentReport(string connectionString)
         {
-
             try
-
             {
-
                 using (SqlConnection connection = new SqlConnection(connectionString))
-
                 {
-
                     await connection.OpenAsync();
 
                     string query = @"
-
-                       INSERT INTO Employees (EmployeeName, Salary, HireDate, DepartmentId)  
-
-                       VALUES (@name, @salary, GETDATE(), @deptId)";
+                        SELECT d.DepartmentName, 
+                               COUNT(e.EmployeeId) AS EmpCount, 
+                               AVG(e.Salary) AS AvgSalary 
+                        FROM Departments d 
+                        LEFT JOIN Employees e ON d.DepartmentId = e.DepartmentId 
+                        GROUP BY d.DepartmentName
+                        ORDER BY d.DepartmentName";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
-
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
+                        if (!reader.HasRows)
+                        {
+                            Console.WriteLine("В базе нет данных для отчёта.");
+                            return;
+                        }
 
-                        command.Parameters.AddWithValue("@name", name);
+                        Console.WriteLine("                                                  ");
+                        Console.WriteLine($"{"Отдел",-20} | {"Сотрудников",12} | {"Средняя зарплата",12}");
+                        Console.WriteLine("                                                  ");
 
-                        command.Parameters.AddWithValue("@salary", salary);
+                        while (await reader.ReadAsync())
+                        {
+                            string deptName = reader.GetString(0);
 
-                        command.Parameters.AddWithValue("@deptId", deptId);
+                            int empCount = reader.GetInt32(1);
 
-                        int rowsAffected = await command.ExecuteNonQueryAsync();
-
-                        Console.WriteLine($"Успешно: Добавлен сотрудник '{name}'. Затронуто строк: {rowsAffected}");
-
+                            string avgSalaryStr;
+                            if (reader.IsDBNull(2))
+                            {
+                                avgSalaryStr = "N/A";
+                            }
+                            else
+                            {
+                                decimal avgSalary = reader.GetDecimal(2);
+                                avgSalaryStr = Math.Round(avgSalary, 2).ToString("F2") + " руб.";
+                            }
+                            Console.WriteLine($"{deptName,-20} | {empCount,12} | {avgSalaryStr,12}");
+                        }
+                        Console.WriteLine("                                                         ");
                     }
-
                 }
-
             }
-
             catch (SqlException ex)
-
             {
-
-                Console.WriteLine($"Ошибка SQL Server при добавлении: {ex.Message}");
-
+                Console.WriteLine($"Ошибка SQL Server: {ex.Message}");
             }
-
         }
-
-        static async Task PrintAllEmployees(string connectionString)
-
-        {
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-
-            {
-
-                await connection.OpenAsync();
-
-                string query = "SELECT TOP 5 EmployeeName, Salary FROM Employees ORDER BY EmployeeId DESC";
-
-
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-
-                using (SqlDataReader reader = await command.ExecuteReaderAsync())
-
-                {
-
-                    while (await reader.ReadAsync())
-
-                    {
-
-                        Console.WriteLine($"{reader.GetString(0)} - {reader.GetDecimal(1)} руб.");
-
-                    }
-
-                }
-
-            }
-
-        }
-
     }
-
 }
